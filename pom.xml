@@ -112,6 +112,23 @@
                 <version>3.0.0-M8</version>
                 <!--                [... configuration or goals and executions ...]-->
             </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.19.0</version>
+                <configuration>
+                    <propertyFile>src/main/resources/db/liquibase.properties</propertyFile>
+                    <changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
+                </configuration>
+                <executions>
+                    <!--                    <execution>
+                                            <phase>process-resources</phase>
+                                            <goals>
+                                                <goal>update</goal>
+                                            </goals>
+                                        </execution>-->
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

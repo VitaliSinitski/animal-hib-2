@@ -10,8 +10,6 @@ import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-import static com.vitali.animal.util.HibernateUtil.*;
-
 public class AnimalDao implements Dao<Integer, Animal> {
     private static final AnimalDao INSTANCE = new AnimalDao();
     public static AnimalDao getInstance() {
@@ -19,7 +17,7 @@ public class AnimalDao implements Dao<Integer, Animal> {
     }
     @Override
     public List<Animal> findAll() {
-        EntityManager em = getEntityManager();
+        EntityManager em = HibernateUtil.getEntityManager();
         em.getTransaction().begin();
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -29,28 +27,28 @@ public class AnimalDao implements Dao<Integer, Animal> {
         List<Animal> resultList = em.createQuery(criteriaQuery).getResultList();
 
         em.getTransaction().commit();
-        close();
+        em.close();
         return resultList;
     }
 
     @Override
     public Animal findById(Integer id) {
-        EntityManager em = getEntityManager();
+        EntityManager em = HibernateUtil.getEntityManager();
         em.getTransaction().begin();
         Animal animal = em.find(Animal.class, id);
         em.getTransaction().commit();
-        close();
+        em.close();
         return animal;
     }
 
     @Override
     public void delete(Integer id) {
-        EntityManager em = getEntityManager();
+        EntityManager em = HibernateUtil.getEntityManager();
         em.getTransaction().begin();
         Animal animal = em.find(Animal.class, id);
         em.remove(animal);
         em.getTransaction().commit();
-        close();
+        em.close();
     }
 
     @Override
@@ -58,7 +56,7 @@ public class AnimalDao implements Dao<Integer, Animal> {
         String name = entity.getName();
         Integer weight = entity.getWeight();
 
-        EntityManager em = getEntityManager();
+        EntityManager em = HibernateUtil.getEntityManager();
         em.getTransaction().begin();
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
@@ -71,21 +69,22 @@ public class AnimalDao implements Dao<Integer, Animal> {
 
         em.createQuery(criteriaUpdate).executeUpdate();
         em.getTransaction().commit();
-        close();
+        em.close();
     }
 
     @Override
     public Animal save(Animal entity) {
+        EntityManager em = HibernateUtil.getEntityManager();
+        em.getTransaction().begin();
+
         Animal animal = Animal.builder()
                 .name(entity.getName())
                 .weight(entity.getWeight())
                 .build();
 
-        EntityManager em = getEntityManager();
-        em.getTransaction().begin();
         em.merge(animal);
         em.getTransaction().commit();
-        close();
+        em.close();
 
         return animal;
     }

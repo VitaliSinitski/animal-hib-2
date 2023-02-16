@@ -15,7 +15,7 @@ public class UpdateCommand implements CrudCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        Integer id = Integer.valueOf(request.getParameter(ID));
+        Integer id = Integer.parseInt(request.getParameter(ID));
 
         if (request.getMethod().equals(GET)) {
             AnimalDto animalDto = animalService.findById(id);
@@ -25,7 +25,7 @@ public class UpdateCommand implements CrudCommand {
         } else {
             CreateAnimalDto createAnimalDto = CreateAnimalDto.builder()
                     .name(request.getParameter(NAME))
-                    .weight(Integer.valueOf(request.getParameter(WEIGHT)))
+                    .weight(Integer.parseInt(request.getParameter(WEIGHT)))
                     .build();
             animalService.update(createAnimalDto, id);
             request.setAttribute(ANIMAL_LIST, animalService.findAll());

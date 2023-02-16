@@ -17,10 +17,11 @@ public class CreateCommand implements CrudCommand{
         } else {
             CreateAnimalDto createAnimalDto = CreateAnimalDto.builder()
                     .name(request.getParameter(NAME))
-                    .weight(Integer.parseInt(request.getParameter(WEIGHT)))
+                    .weight(Integer.valueOf(request.getParameter(WEIGHT)))
                     .build();
             try {
                 animalService.save(createAnimalDto);
+                request.setAttribute(ANIMAL_LIST, animalService.findAll());
                 return LIST_JSP;
             } catch (ValidationException exception) {
                 request.setAttribute(ERRORS, exception.getErrors());

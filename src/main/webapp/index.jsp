@@ -41,7 +41,7 @@
         <td>
             <form class="addForm" method="get" action="${pageContext.request.contextPath}/controller">
                 <input type="hidden" name="command" value="create">
-                <button type="submit">Добавить человека</button>
+                <button type="submit">Добавить</button>
             </form>
         </td>
     </tr>
