@@ -6,7 +6,6 @@ import com.vitali.animal.service.AnimalService;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 import static com.vitali.animal.util.Constants.*;
 
 public class CreateCommand implements CrudCommand{
