@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd8300c-6eae-43ce-bc1b-2cda7b55c5e3" name="Changes" comment="1.2">
+    <list default="true" id="fdd8300c-6eae-43ce-bc1b-2cda7b55c5e3" name="Changes" comment="+ liquibase">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -18,22 +18,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.0/2023-01-30-create-table-animal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.0/db.changelog-v.1.0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.1/2023-01-31-insert-into-table-animal.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.1/db.changelog-v.1.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/liquibase.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/update.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/command/CreateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/command/CreateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/command/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/command/UpdateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/dao/AnimalDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/dao/AnimalDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/entity/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/entity/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +213,7 @@
       <workItem from="1676528956117" duration="13773000" />
       <workItem from="1676558913382" duration="69000" />
       <workItem from="1676577707324" duration="6358000" />
-      <workItem from="1676586222511" duration="4608000" />
+      <workItem from="1676586222511" duration="5400000" />
     </task>
     <task id="LOCAL-00001" summary="1.1">
       <created>1676540965377</created>
@@ -244,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676558960892</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+ liquibase">
+      <created>1676590988726</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676590988726</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +245,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.1" />
     <MESSAGE value="1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.2" />
+    <MESSAGE value="+ liquibase" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ liquibase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
