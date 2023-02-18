@@ -10,15 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdd8300c-6eae-43ce-bc1b-2cda7b55c5e3" name="Changes" comment="+ liquibase">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vitali/animal/mapper/AnimalMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vitali/animal/mapper/CreateAnimalMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vitali/animal/service/AnimalServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vitali/animal/validator/CreateAnimalValidatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/service/AnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/service/AnimalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/validator/CreateAnimalValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/validator/CreateAnimalValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vitali/animal/validator/ValidationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vitali/animal/validator/ValidationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.1/2023-01-31-insert-into-table-animal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/v-1.1/2023-01-31-insert-into-table-animal.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +34,7 @@
         <option value="Enum" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -52,10 +55,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2LoEI973cUS0trgpUqs23gUotdb" />
@@ -64,36 +68,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java/IdeaProjects/animal-hib/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3218391",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/IdeaProjects/animal-hib/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3218391&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\IdeaProjects\animal-hib\src\main\resources" />
       <recent name="D:\Java\IdeaProjects\animal-hib\src\main\webapp\WEB-INF\jsp" />
       <recent name="D:\Java\IdeaProjects\animal-hib\src\main\java\com\vitali\animal" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.vitali.animal.service" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.vitali.animal.service" />
+      <recent name="com.vitali.animal.mapper" />
+      <recent name="com.vitali.animal.validator" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.vitali.animal.servlet" />
@@ -101,7 +114,84 @@
       <recent name="com.vitali.animal.util" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AnimalServiceTest.save">
+    <configuration name="AnimalMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="animal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vitali.animal.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vitali.animal.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.vitali.animal.mapper.AnimalMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnimalServiceTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="animal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vitali.animal.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vitali.animal.service" />
+      <option name="MAIN_CLASS_NAME" value="com.vitali.animal.service.AnimalServiceTest" />
+      <option name="METHOD_NAME" value="save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateAnimalMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="animal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vitali.animal.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vitali.animal.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.vitali.animal.mapper.CreateAnimalMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateAnimalValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="animal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vitali.animal.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vitali.animal.validator" />
+      <option name="MAIN_CLASS_NAME" value="com.vitali.animal.validator.CreateAnimalValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateAnimalValidatorTest.lengthNameNullWeightField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="animal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vitali.animal.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vitali.animal.validator" />
+      <option name="MAIN_CLASS_NAME" value="com.vitali.animal.validator.CreateAnimalValidatorTest" />
+      <option name="METHOD_NAME" value="lengthNameNullWeightField" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="animal-hib" />
       <method v="2">
@@ -125,6 +215,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="4eaf7832-84cd-43e7-abe5-621f03d7c63e" />
+        <option name="HTTP_PORT" value="8081" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -201,6 +292,23 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.AnimalServiceTest.save" />
+      <item itemvalue="JUnit.AnimalMapperTest" />
+      <item itemvalue="JUnit.CreateAnimalMapperTest" />
+      <item itemvalue="JUnit.CreateAnimalValidatorTest" />
+      <item itemvalue="JUnit.CreateAnimalValidatorTest.lengthNameNullWeightField" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.71" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AnimalServiceTest.save" />
+        <item itemvalue="JUnit.AnimalMapperTest" />
+        <item itemvalue="JUnit.CreateAnimalMapperTest" />
+        <item itemvalue="JUnit.CreateAnimalValidatorTest" />
+        <item itemvalue="JUnit.CreateAnimalValidatorTest.lengthNameNullWeightField" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -214,6 +322,8 @@
       <workItem from="1676558913382" duration="69000" />
       <workItem from="1676577707324" duration="6358000" />
       <workItem from="1676586222511" duration="5400000" />
+      <workItem from="1676739806672" duration="5114000" />
+      <workItem from="1676753454591" duration="10523000" />
     </task>
     <task id="LOCAL-00001" summary="1.1">
       <created>1676540965377</created>
@@ -252,19 +362,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vitali/animal/service/AnimalService.java</url>
-          <line>19</line>
-          <properties class="com.vitali.animal.service.AnimalService" method="findAll">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/vitali/animal/dao/AnimalDao.java</url>
           <line>18</line>
           <properties class="com.vitali.animal.dao.AnimalDao" method="findAll">
-            <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
@@ -304,6 +404,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/vitali/animal/service/AnimalServiceTest.java</url>
+          <line>43</line>
+          <properties class="com.vitali.animal.service.AnimalServiceTest" method="save">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

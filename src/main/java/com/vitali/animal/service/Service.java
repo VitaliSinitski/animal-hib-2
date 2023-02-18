@@ -12,7 +12,7 @@ public interface Service {
 
     AnimalDto findById(Integer id);
 
-    Animal save(CreateAnimalDto createAnimalDto);
+    AnimalDto save(CreateAnimalDto createAnimalDto);
 
     void update(CreateAnimalDto createAnimalDto, Integer id);
 

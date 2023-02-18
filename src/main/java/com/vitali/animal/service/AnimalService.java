@@ -4,8 +4,11 @@ import com.vitali.animal.dao.AnimalDao;
 import com.vitali.animal.dto.AnimalDto;
 import com.vitali.animal.dto.CreateAnimalDto;
 import com.vitali.animal.entity.Animal;
+import com.vitali.animal.exception.ValidationException;
 import com.vitali.animal.mapper.AnimalMapper;
 import com.vitali.animal.mapper.CreateAnimalMapper;
+import com.vitali.animal.validator.CreateAnimalValidator;
+import com.vitali.animal.validator.ValidationResult;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +18,7 @@ public class AnimalService implements Service {
     private final AnimalDao animalDao = AnimalDao.getInstance();
     private final AnimalMapper animalMapper = AnimalMapper.getInstance();
     private final CreateAnimalMapper createAnimalMapper = CreateAnimalMapper.getInstance();
+    private final CreateAnimalValidator createAnimalValidator = CreateAnimalValidator.getInstance();
 
     @Override
     public List<AnimalDto> findAll() {
@@ -29,10 +33,15 @@ public class AnimalService implements Service {
     }
 
     @Override
-    public Animal save(CreateAnimalDto createAnimalDto) {
+    public AnimalDto save(CreateAnimalDto createAnimalDto) {
+        ValidationResult validationResult = createAnimalValidator.isValid(createAnimalDto);
+        if (validationResult.hasErrors()) {
+            throw new ValidationException(validationResult.getErrors());
+        }
         Animal animalEntity = createAnimalMapper.mapFrom(createAnimalDto);
         animalDao.save(animalEntity);
-        return animalEntity;
+//        return animalEntity;
+        return animalMapper.mapFrom(animalEntity);
     }
 
     @Override

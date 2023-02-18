@@ -18,13 +18,13 @@ public class CreateAnimalValidator implements Validator<CreateAnimalDto> {
     public ValidationResult isValid(CreateAnimalDto object) {
         ValidationResult validationResult = new ValidationResult();
         if (object.getName().isEmpty()) {
-            validationResult.add(Error.of("invalid.input", "Введите имя! Поле должно быть заполнено"));
+            validationResult.add(Error.of("invalid.input.name.empty", "Введите имя! Поле должно быть заполнено"));
         }
         if (object.getWeight() < 1) {
-            validationResult.add(Error.of("invalid.input", "Введите вес! Поле должно быть заполнено"));
+            validationResult.add(Error.of("invalid.input.weight.null", "Введите правильный вес! Вес должен быть больше 0"));
         }
         if (object.getName().length() == 1){
-            validationResult.add(Error.of("invalid.input", "Длина имени должна быть более одного символа"));
+            validationResult.add(Error.of("invalid.input.name.length", "Длина имени должна быть более одного символа"));
         }
 //        boolean letter = !object.getSurname().matches("[A-Za-zА-Яа-я]") || !object.getName().matches("[A-Za-zА-Яа-я]");
 //        boolean empty = !object.getName().isEmpty() && !object.getSurname().isEmpty();
