@@ -20,6 +20,9 @@ public class CreateAnimalValidator implements Validator<CreateAnimalDto> {
         if (object.getName().isEmpty()) {
             validationResult.add(Error.of("invalid.input.name.empty", "Введите имя! Поле должно быть заполнено"));
         }
+//        if (object.getWeight().isEmpty()) {
+//            validationResult.add(Error.of("invalid.input.weight.null", "Введите вес! Поле должно быть заполнено"));
+//        }
         if (object.getWeight() < 1) {
             validationResult.add(Error.of("invalid.input.weight.null", "Введите правильный вес! Вес должен быть больше 0"));
         }
@@ -34,4 +37,5 @@ public class CreateAnimalValidator implements Validator<CreateAnimalDto> {
 
         return validationResult;
     }
+
 }

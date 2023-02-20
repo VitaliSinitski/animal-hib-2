@@ -32,16 +32,10 @@ public class AnimalService implements Service {
         return animalMapper.mapFrom(animalDao.findById(id));
     }
 
+
     @Override
-    public AnimalDto save(CreateAnimalDto createAnimalDto) {
-        ValidationResult validationResult = createAnimalValidator.isValid(createAnimalDto);
-        if (validationResult.hasErrors()) {
-            throw new ValidationException(validationResult.getErrors());
-        }
-        Animal animalEntity = createAnimalMapper.mapFrom(createAnimalDto);
-        animalDao.save(animalEntity);
-//        return animalEntity;
-        return animalMapper.mapFrom(animalEntity);
+    public void delete(Integer id) {
+        animalDao.delete(id);
     }
 
     @Override
@@ -51,10 +45,17 @@ public class AnimalService implements Service {
     }
 
     @Override
-    public void delete(Integer id) {
-        animalDao.delete(id);
-    }
+    public AnimalDto save(CreateAnimalDto createAnimalDto) {
+        ValidationResult validationResult = createAnimalValidator.isValid(createAnimalDto);
+        if (validationResult.hasErrors()) {
+            throw new ValidationException(validationResult.getErrors());
+        }
 
+        Animal animal = createAnimalMapper.mapFrom(createAnimalDto);
+        Animal animalEntity = animalDao.save(animal);
+//        return animalEntity;
+        return animalMapper.mapFrom(animalEntity);
+    }
     public static AnimalService getInstance() {
         return INSTANCE;
     }

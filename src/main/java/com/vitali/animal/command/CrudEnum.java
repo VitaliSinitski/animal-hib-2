@@ -8,11 +8,13 @@ public enum CrudEnum {
 
     private final CrudCommand crudCommand;
 
-    CrudEnum(final CrudCommand newCrudCommand) {
-        crudCommand = newCrudCommand;
-    }
-
     public CrudCommand getCurrentCommand() {
         return crudCommand;
     }
+
+    CrudEnum(CrudCommand newCrudCommand) {
+        crudCommand = newCrudCommand;
+    }
+
+
 }

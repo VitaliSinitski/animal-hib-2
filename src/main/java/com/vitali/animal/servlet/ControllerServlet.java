@@ -13,6 +13,8 @@ import java.util.Objects;
 
 @WebServlet("/controller")
 public class ControllerServlet extends HttpServlet {
+
+    private final CrudFactory crudFactory = CrudFactory.getInstance();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -24,7 +26,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CrudCommand crudCommand = CrudFactory.getInstance().defineCommand(request);
+        CrudCommand crudCommand = crudFactory.defineCommand(request);
         String page = Objects.requireNonNull(crudCommand.execute(request));
         getServletContext().getRequestDispatcher(page).forward(request, response);
 

@@ -2,6 +2,7 @@ package com.vitali.animal.dao;
 
 import com.vitali.animal.entity.Animal;
 import com.vitali.animal.util.HibernateUtil;
+import lombok.SneakyThrows;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -24,6 +25,7 @@ public class AnimalDao implements Dao<Integer, Animal> {
         CriteriaQuery<Animal> criteriaQuery = cb.createQuery(Animal.class);
         Root<Animal> root = criteriaQuery.from(Animal.class);
         criteriaQuery.select(root);
+
         List<Animal> resultList = em.createQuery(criteriaQuery).getResultList();
 
         em.getTransaction().commit();
@@ -35,6 +37,7 @@ public class AnimalDao implements Dao<Integer, Animal> {
     public Animal findById(Integer id) {
         EntityManager em = HibernateUtil.getEntityManager();
         em.getTransaction().begin();
+
         Animal animal = em.find(Animal.class, id);
         em.getTransaction().commit();
         em.close();
@@ -72,6 +75,7 @@ public class AnimalDao implements Dao<Integer, Animal> {
         em.close();
     }
 
+    @SneakyThrows
     @Override
     public Animal save(Animal entity) {
         EntityManager em = HibernateUtil.getEntityManager();
@@ -82,7 +86,10 @@ public class AnimalDao implements Dao<Integer, Animal> {
                 .weight(entity.getWeight())
                 .build();
 
-        em.merge(animal);
+        em.persist(animal);
+        Integer id = animal.getId();
+        animal.setId(id);
+
         em.getTransaction().commit();
         em.close();
 

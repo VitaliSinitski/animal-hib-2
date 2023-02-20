@@ -12,9 +12,10 @@ public interface Service {
 
     AnimalDto findById(Integer id);
 
-    AnimalDto save(CreateAnimalDto createAnimalDto);
+    void delete(Integer id);
 
     void update(CreateAnimalDto createAnimalDto, Integer id);
 
-    void delete(Integer id);
+    AnimalDto save(CreateAnimalDto createAnimalDto);
+
 }

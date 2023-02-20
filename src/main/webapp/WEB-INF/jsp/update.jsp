@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Registration</title>
@@ -17,16 +18,19 @@
             text-align: center;
             margin: auto;
         }
+
         th, td:first-child {
             background: #AFCDE7;
             color: black;
             padding: 10px 20px;
         }
+
         th, td {
             border-style: solid;
             border-width: 0 1px 1px 0;
             border-color: black;
         }
+
         td {
             background: #D8E6F3;
         }
@@ -43,7 +47,8 @@
         <input type="text" name="name" id="name" placeholder="Введите новое имя" value="${requestScope.animalDto.name}">
     </label><br>
     <label for="weight">Вес:
-        <input type="text" name="weight" id="weight" placeholder="Введите новый вес" value="${requestScope.animalDto.weight}">
+        <input type="text" name="weight" id="weight" placeholder="Введите новый вес"
+               value="${requestScope.animalDto.weight}">
     </label><br>
     <button type="submit">Подтвердить</button>
 </form>
@@ -57,5 +62,12 @@
     <input type="hidden">
     <button type="submit">Home</button>
 </form>
+<c:if test="${not empty requestScope.errors}">
+    <div style="color: red">
+        <c:forEach var="error" items="${requestScope.errors}">
+            <span>${error.message}</span><br>
+        </c:forEach>
+    </div>
+</c:if>
 </body>
 </html>
