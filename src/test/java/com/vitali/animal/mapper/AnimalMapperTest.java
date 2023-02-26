@@ -1,12 +1,10 @@
 package com.vitali.animal.mapper;
 
 import com.vitali.animal.dto.AnimalDto;
-import com.vitali.animal.dto.CreateAnimalDto;
 import com.vitali.animal.entity.Animal;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalMapperTest {
     private final AnimalMapper mapper = AnimalMapper.getInstance();
@@ -18,7 +16,7 @@ class AnimalMapperTest {
                 .weight(8)
                 .build();
 
-        AnimalDto actualResult = mapper.mapFrom(animal);
+        AnimalDto actualResult = mapper.mapToDto(animal);
 
         AnimalDto expectetResult = AnimalDto.builder()
                 .id(99)

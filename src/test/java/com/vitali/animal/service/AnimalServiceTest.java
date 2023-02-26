@@ -1,11 +1,7 @@
 package com.vitali.animal.service;
 
 import com.vitali.animal.dao.AnimalDao;
-import com.vitali.animal.dto.AnimalDto;
-import com.vitali.animal.dto.CreateAnimalDto;
 import com.vitali.animal.mapper.AnimalMapper;
-import com.vitali.animal.mapper.CreateAnimalMapper;
-import com.vitali.animal.util.Util;
 import com.vitali.animal.validator.CreateAnimalValidator;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +13,6 @@ class AnimalServiceTest {
 
     private CreateAnimalValidator createAnimalValidator;
     private AnimalDao animalDao;
-    private CreateAnimalMapper createAnimalMapper;
     private AnimalMapper animalMapper;
     private AnimalService animalService = AnimalService.getInstance();
 
@@ -36,7 +31,7 @@ class AnimalServiceTest {
 
     @Test
     void save() {
-        assertNotNull(animalService.save(getCreateAnimalDto()));
+        assertNotNull(animalService.save(getAnimalDto()));
     }
 
     @Test

@@ -1,12 +1,12 @@
 package com.vitali.animal.validator;
 
-import com.vitali.animal.dto.CreateAnimalDto;
+import com.vitali.animal.dto.AnimalDto;
 import lombok.NoArgsConstructor;
 
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
-public class CreateAnimalValidator implements Validator<CreateAnimalDto> {
+public class CreateAnimalValidator implements Validator<AnimalDto> {
 
     private static final CreateAnimalValidator INSTANCE = new CreateAnimalValidator();
 
@@ -15,7 +15,7 @@ public class CreateAnimalValidator implements Validator<CreateAnimalDto> {
     }
 
     @Override
-    public ValidationResult isValid(CreateAnimalDto object) {
+    public ValidationResult isValid(AnimalDto object) {
         ValidationResult validationResult = new ValidationResult();
         if (object.getName().isEmpty()) {
             validationResult.add(Error.of("invalid.input.name.empty", "Введите имя! Поле должно быть заполнено"));

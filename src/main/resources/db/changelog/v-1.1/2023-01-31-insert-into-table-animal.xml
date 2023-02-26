@@ -17,17 +17,53 @@
             <column name="name" value="Micky"/>
             <column name="weight" value="6"/>
         </insert>
+        <insert tableName="animal" >
+            <column name="name" value="Mick"/>
+            <column name="weight" value="8"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Stan"/>
+            <column name="weight" value="12"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Nick"/>
+            <column name="weight" value="61"/>
+        </insert>
+        <insert tableName="animal" >
+            <column name="name" value="Big"/>
+            <column name="weight" value="28"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Mony"/>
+            <column name="weight" value="23"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Biggy"/>
+            <column name="weight" value="56"/>
+        </insert>
+        <insert tableName="animal" >
+            <column name="name" value="Jack"/>
+            <column name="weight" value="82"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Whity"/>
+            <column name="weight" value="12"/>
+        </insert>
+        <insert tableName="animal">
+            <column name="name" value="Shoty"/>
+            <column name="weight" value="67"/>
+        </insert>
 
         <rollback>
-            <delete tableName="animal">
-                <where>name = "Jumbo"</where>
-            </delete>
-            <delete tableName="animal">
-                <where>name = "Bamby"</where>
-            </delete>
-            <delete tableName="animal">
-                <where>name = "Moby"</where>
-            </delete>
+<!--            <delete tableName="animal">-->
+<!--                <where>name = "Jumbo"</where>-->
+<!--            </delete>-->
+<!--            <delete tableName="animal">-->
+<!--                <where>name = "Bamby"</where>-->
+<!--            </delete>-->
+<!--            <delete tableName="animal">-->
+<!--                <where>name = "Moby"</where>-->
+<!--            </delete>-->
         </rollback>
     </changeSet>
 

@@ -11,6 +11,24 @@
 <head>
     <title>Title</title>
     <style>
+        li {
+            display: inline;
+            list-style-type: none;
+            list-style-position: inside;
+        }
+
+        ul {
+            display: inline;
+            list-style-type: none;
+        }
+        nav {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+            text-align: center;
+        }
+        form {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+            text-align: center;
+        }
         table {
             font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
             font-size: 14px;
@@ -120,5 +138,72 @@
         </c:otherwise>
     </c:choose>
 
+<nav aria-label="Navigation for animals">
+    <ul>
+        <c:if test="${requestScope.currentPage != 1}">
+            <li>
+                <form method="get" action="${pageContext.request.contextPath}/controller">
+                    <input type="hidden" name="command" value="read">
+                    <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
+                    <input type="hidden" name="currentPage" value="${currentPage-1}">
+                    <button type="submit">Previous</button>
+                </form>
+<%--                <a class="page-link" href="ReadCountries?recordsPerPage=${recordsPerPage}&currentPage=${currentPage-1}">Previous</a>--%>
+            </li>
+        </c:if>
+
+        <c:forEach begin="1" end="${numberOfPages}" var="i">
+            <c:choose>
+                <c:when test="${currentPage eq i}">
+                    <li>
+                        <a>
+                            ${i} <span>(current)</span>
+                    </a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li>
+                        <form method="get" action="${pageContext.request.contextPath}/controller">
+                            <input type="hidden" name="command" value="read">
+                            <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
+                            <input type="hidden" name="currentPage" value="${i}">
+                            <button type="submit">${i}</button>
+                        </form>
+<%--                        <a href="ReadCountries?recordsPerPage=${recordsPerPage}&currentPage=${i}">${i}</a>--%>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+
+        <c:if test="${currentPage lt numberOfPages}">
+            <li>
+                <form method="get" action="${pageContext.request.contextPath}/controller">
+                    <input type="hidden" name="command" value="read">
+                    <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
+                    <input type="hidden" name="currentPage" value="${currentPage+1}">
+                    <button type="submit">Next</button>
+                </form>
+
+<%--                <a href="ReadCountries?recordsPerPage=${recordsPerPage}&currentPage=${currentPage+1}">Next</a>--%>
+            </li>
+        </c:if>
+    </ul>
+</nav>
+
+<form method="get" action="${pageContext.request.contextPath}/controller">
+    <input type="hidden" name="command" value="read">
+    <input type="hidden" name="currentPage" value="1">
+
+    <div>
+        <label for="records">Select records per page:</label>
+        <select id="records" name="recordsPerPage">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+        </select>
+
+    </div>
+    <button type="submit">Submit</button>
+</form>
     </body>
 </html>

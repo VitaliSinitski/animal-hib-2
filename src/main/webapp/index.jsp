@@ -53,6 +53,14 @@
             </form>
         </td>
     </tr>
+    <tr>
+        <td>
+            <form method="get" action="${pageContext.request.contextPath}/ind">
+                <input type="hidden">
+                <button type="submit">Page</button>
+            </form>
+        </td>
+    </tr>
     </thead>
 </table>
 </body>

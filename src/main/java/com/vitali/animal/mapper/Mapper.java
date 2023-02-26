@@ -1,5 +1,6 @@
 package com.vitali.animal.mapper;
 
 public interface Mapper<F, T> {
-    T mapFrom(F object);
+    T mapToDto(F object);
+    F mapToEntity(T object);
 }

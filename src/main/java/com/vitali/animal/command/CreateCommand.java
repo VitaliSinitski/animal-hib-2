@@ -1,7 +1,7 @@
 package com.vitali.animal.command;
 
 import com.vitali.animal.converter.Converter;
-import com.vitali.animal.dto.CreateAnimalDto;
+import com.vitali.animal.dto.AnimalDto;
 import com.vitali.animal.exception.ValidationException;
 import com.vitali.animal.service.AnimalService;
 import com.vitali.animal.validator.CreateRequestValidator;
@@ -24,8 +24,8 @@ public class CreateCommand implements CrudCommand{
                 if (validationResult.hasErrors()) {
                     throw new ValidationException(validationResult.getErrors());
                 }
-                CreateAnimalDto createAnimalDto = Converter.convert(request);
-                animalService.save(createAnimalDto);
+                AnimalDto animalDto = Converter.convertCreate(request);
+                animalService.save(animalDto);
                 request.setAttribute(ANIMAL_LIST, animalService.findAll());
                 return LIST_JSP;
             } catch (ValidationException exception) {

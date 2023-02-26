@@ -1,10 +1,8 @@
 package com.vitali.animal.validator;
 
-import com.vitali.animal.dto.CreateAnimalDto;
 import lombok.NoArgsConstructor;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.http.HttpRequest;
 
 import static com.vitali.animal.util.Constants.NAME;
 import static com.vitali.animal.util.Constants.WEIGHT;

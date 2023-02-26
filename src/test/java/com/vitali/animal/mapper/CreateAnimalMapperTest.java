@@ -1,24 +1,22 @@
 package com.vitali.animal.mapper;
 
-import com.vitali.animal.dto.CreateAnimalDto;
+import com.vitali.animal.dto.AnimalDto;
 import com.vitali.animal.entity.Animal;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CreateAnimalMapperTest {
-    private final CreateAnimalMapper mapper = CreateAnimalMapper.getInstance();
+    private final AnimalMapper mapper = AnimalMapper.getInstance();
 
     @Test
     void mapFrom() {
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("Jack")
                 .weight(8)
                 .build();
 
-        Animal actualResult = mapper.mapFrom(dto);
+        Animal actualResult = mapper.mapToEntity(dto);
 
         Animal expectetResult = Animal.builder()
                 .name("Jack")

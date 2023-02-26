@@ -1,7 +1,8 @@
 package com.vitali.animal.validator;
 
-import com.vitali.animal.dto.CreateAnimalDto;
 import java.util.List;
+
+import com.vitali.animal.dto.AnimalDto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,7 @@ class CreateAnimalValidatorTest {
     @Test
     void shouldPassValidation() {
 
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("Mona")
                 .weight(8)
                 .build();
@@ -26,7 +27,7 @@ class CreateAnimalValidatorTest {
     @Test
     void emptyNameField() {
 
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("")
                 .weight(8)
                 .build();
@@ -40,7 +41,7 @@ class CreateAnimalValidatorTest {
 
     @Test
     void nullWeightField() {
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("Jack")
                 .weight(0)
                 .build();
@@ -53,7 +54,7 @@ class CreateAnimalValidatorTest {
 
     @Test
     void lengthNameField() {
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("J")
                 .weight(3)
                 .build();
@@ -66,7 +67,7 @@ class CreateAnimalValidatorTest {
 
     @Test
     void emptyNameNullWeightField() {
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("J")
                 .weight(0)
                 .build();
@@ -81,7 +82,7 @@ class CreateAnimalValidatorTest {
 
     @Test
     void lengthNameNullWeightField() {
-        CreateAnimalDto dto = CreateAnimalDto.builder()
+        AnimalDto dto = AnimalDto.builder()
                 .name("")
                 .weight(0)
                 .build();
